@@ -7,9 +7,23 @@
 body {
   height: 100vh;
   min-height: 100vh;
-  background: #eee;
+  background: #fafafa;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
