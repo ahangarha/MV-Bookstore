@@ -14,10 +14,14 @@ body {
   color: #333;
 }
 
+hr {
+  border: 1px solid #e8e8e8;
+}
+
 .container {
   width: 100%;
   max-width: 992px;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
 .w-6 {
