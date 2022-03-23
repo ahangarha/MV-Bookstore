@@ -9,7 +9,7 @@ export default function BookList({ books }) {
       <ul id="book-list">
         {
           books.map((book) => (
-            <Book book={book} key={book} />
+            <Book book={book} key={book.title} />
           ))
         }
       </ul>

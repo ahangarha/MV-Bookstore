@@ -6,14 +6,7 @@ import CategoriesPage from './pages/CategoriesPage';
 import './App.css';
 
 export default function App() {
-  const [books] = useState([
-    {
-      title: 'book 1',
-    },
-    {
-      title: 'book 2',
-    },
-  ]);
+  const [books] = useState([]);
 
   return (
     <BrowserRouter>
