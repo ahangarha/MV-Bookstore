@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 5.938rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+header .header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+header nav {
+  flex-grow: 1;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 0.815rem;
+  text-transform: uppercase;
+  list-style: none;
+}
+
+header .user {
+  display: grid;
+  place-content: center;
+  width: 2.815rem;
+  height: 2.815rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 50%;
+}
