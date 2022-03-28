@@ -11,7 +11,7 @@ export default function BookList() {
       <ul id="book-list">
         {
           books.map((book) => (
-            <Book book={book} key={book.title} />
+            <Book book={book} key={book.id} />
           ))
         }
       </ul>
