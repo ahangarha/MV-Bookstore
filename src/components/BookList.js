@@ -1,9 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import './BookList.css';
 
-export default function BookList({ books }) {
+export default function BookList() {
+  const books = useSelector((state) => state.books);
+
   if (books.length) {
     return (
       <ul id="book-list">
@@ -22,9 +24,3 @@ export default function BookList({ books }) {
     </>
   );
 }
-
-BookList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  })).isRequired,
-};
