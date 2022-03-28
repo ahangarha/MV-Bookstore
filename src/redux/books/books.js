@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
@@ -19,6 +21,7 @@ export default function reducer(state = [], action) {
   switch (action.type) {
     case ADD_BOOK:
       return state.concat({
+        id: uuidv4(),
         ...action.payload.data,
       });
     case REMOVE_BOOK:

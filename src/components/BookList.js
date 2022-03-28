@@ -1,15 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import './BookList.css';
 
-export default function BookList({ books }) {
+export default function BookList() {
+  const books = useSelector((state) => state.books);
+
   if (books.length) {
     return (
       <ul id="book-list">
         {
           books.map((book) => (
-            <Book book={book} key={book.title} />
+            <Book book={book} key={book.id} />
           ))
         }
       </ul>
@@ -22,9 +24,3 @@ export default function BookList({ books }) {
     </>
   );
 }
-
-BookList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  })).isRequired,
-};
