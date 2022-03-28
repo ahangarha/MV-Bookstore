@@ -6,6 +6,7 @@ import './AddBookForm.css';
 
 export default function AddBookForm({ categories }) {
   const [bookTitle, setBookTitle] = useState('');
+  const [bookAuthor] = useState('');
 
   const updateBookTitle = (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ export default function AddBookForm({ categories }) {
           e.preventDefault();
           dispatch(addBook({
             title: bookTitle.trim(),
-            author: 'Unknown',
+            author: bookAuthor,
           }));
           setBookTitle('');
         }}
