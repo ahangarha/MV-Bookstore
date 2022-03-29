@@ -6,11 +6,15 @@ import './AddBookForm.css';
 
 export default function AddBookForm({ categories }) {
   const [bookTitle, setBookTitle] = useState('');
-  const [bookAuthor] = useState('');
+  const [bookAuthor, setBookAuthor] = useState('');
 
   const updateBookTitle = (e) => {
     e.preventDefault();
     setBookTitle(e.target.value);
+  };
+
+  const updateBookAuthor = (e) => {
+    setBookAuthor(e.target.value);
   };
 
   const dispatch = useDispatch();
@@ -35,6 +39,15 @@ export default function AddBookForm({ categories }) {
           value={bookTitle}
           onChange={updateBookTitle}
           placeholder="Book Title"
+          pattern=".*\S+.*"
+          required
+        />
+        <input
+          type="text"
+          name="author"
+          value={bookAuthor}
+          onChange={updateBookAuthor}
+          placeholder="Author"
           pattern=".*\S+.*"
           required
         />
