@@ -1,16 +1,40 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const ADD_BOOK = 'bookstore/books/ADD';
+const BOOK_ADDED = 'bookstore/books/ADDED';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 const BOOK_REMOVED = 'bookstore/books/BOOK_REMOVE';
 const BOOKS_FETCHED = 'bookstore/books/BOOKS_FETCHED';
 
-export const addBook = (data) => ({
-  type: ADD_BOOK,
+const bookAdded = (book) => ({
+  type: BOOK_ADDED,
   payload: {
-    data,
+    book,
   },
 });
+
+export const addBook = (data) => (dispatch) => {
+  const book = {
+    item_id: uuidv4(),
+    title: data.title,
+    author: data.author,
+    category: data.category || '',
+  };
+
+  const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/gKNxtZf3AJCaGnNUdIGw/books';
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  };
+
+  fetch(URL, options)
+    .then((res) => {
+      if (res.status === 201) dispatch(bookAdded(book));
+    });
+};
 
 export const bookRemoved = (id) => ({
   type: BOOK_REMOVED,
@@ -20,7 +44,6 @@ export const bookRemoved = (id) => ({
 });
 
 export const removeBook = (id) => (dispatch) => {
-  // call api to delete book with this id
   let URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/gKNxtZf3AJCaGnNUdIGw/books/';
   URL += id;
   const options = {
@@ -32,6 +55,7 @@ export const removeBook = (id) => (dispatch) => {
       book_id: id,
     }),
   };
+
   fetch(URL, options)
     .then((res) => {
       if (res.status === 201) dispatch(bookRemoved(id));
@@ -64,9 +88,13 @@ export default function reducer(state = [], action) {
     case BOOKS_FETCHED:
       return action.payload.books;
     case ADD_BOOK:
+      return addBook(action.payload.data);
+    case BOOK_ADDED:
       return state.concat({
-        id: uuidv4(),
-        ...action.payload.data,
+        id: action.payload.book.item_id,
+        title: action.payload.book.title,
+        author: action.payload.book.author,
+        category: action.payload.book.category,
       });
     case REMOVE_BOOK:
       return removeBook(action.payload.id);
