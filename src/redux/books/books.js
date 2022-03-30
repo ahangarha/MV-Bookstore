@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 const ADD_BOOK = 'bookstore/books/ADD';
 const BOOK_ADDED = 'bookstore/books/ADDED';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
-const BOOK_REMOVED = 'bookstore/books/BOOK_REMOVE';
-const BOOKS_FETCHED = 'bookstore/books/BOOKS_FETCHED';
+const BOOK_REMOVED = 'bookstore/books/REMOVED';
+const FETCH_BOOKS = 'bookstore/books/FETCH';
+const BOOKS_FETCHED = 'bookstore/books/FETCHED';
 
 const bookAdded = (book) => ({
   type: BOOK_ADDED,
@@ -85,6 +86,8 @@ export const fetchBooks = () => (dispatch) => {
 
 export default function reducer(state = [], action) {
   switch (action.type) {
+    case FETCH_BOOKS:
+      return fetchBooks();
     case BOOKS_FETCHED:
       return action.payload.books;
     case ADD_BOOK:
