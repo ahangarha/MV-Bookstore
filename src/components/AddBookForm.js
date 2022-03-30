@@ -31,6 +31,7 @@ export default function AddBookForm({ categories }) {
             author: bookAuthor,
           }));
           setBookTitle('');
+          setBookAuthor('');
         }}
       >
         <input
