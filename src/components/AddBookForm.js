@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addBook } from '../redux/books/books';
-import './AddBookForm.css';
 
 export default function AddBookForm({ categories }) {
   const [bookTitle, setBookTitle] = useState('');
@@ -20,10 +19,12 @@ export default function AddBookForm({ categories }) {
   const dispatch = useDispatch();
 
   return (
-    <section id="form-section">
-      <h2>Add new book</h2>
+    <section className="flex flex-col gap-4">
+      <h2 className="text-xl font-bold text-gray-500 uppercase">
+        Add new book
+      </h2>
       <form
-        id="add-book-form"
+        className="flex items-center flex-wrap gap-4"
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(addBook({
@@ -39,6 +40,7 @@ export default function AddBookForm({ categories }) {
           name="title"
           value={bookTitle}
           onChange={updateBookTitle}
+          className="px-4 py-3 border rounded bg-white min-w-[12rem] grow"
           placeholder="Book Title"
           pattern=".*\S+.*"
           required
@@ -48,18 +50,27 @@ export default function AddBookForm({ categories }) {
           name="author"
           value={bookAuthor}
           onChange={updateBookAuthor}
+          className="px-4 py-3 border rounded bg-white min-w-[12rem] grow"
           placeholder="Author"
           pattern=".*\S+.*"
           required
         />
-        <select name="category">
+        <select
+          name="category"
+          className="px-4 py-3 border rounded bg-white min-w-[12rem] grow"
+        >
           {
             categories.forEach((cat) => (
               <option value="volvo">{cat.title}</option>
             ))
           }
         </select>
-        <button type="submit">Add book</button>
+        <button
+          type="submit"
+          className="h-12 w-44 px-4 grid place-content-center font-serif border rounded bg-blue-500 text-white uppercase text-sm font-bold"
+        >
+          Add book
+        </button>
       </form>
     </section>
   );
