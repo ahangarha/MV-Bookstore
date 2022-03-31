@@ -7,6 +7,14 @@ This is an educational project to make a bookstore webapp using Reactjs.
 ## Built With
 
 - Reactjs
+- Redux
+- Tailwindcss
+
+## Demo
+
+![Bookstore Screenshot](./screenshot.png)
+
+A live demo of this project is available [on Heroku](https://ahangarha-mv-bookstore.herokuapp.com/).
 
 ## Usage
 
