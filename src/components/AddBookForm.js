@@ -6,6 +6,7 @@ import { addBook } from '../redux/books/books';
 export default function AddBookForm({ categories }) {
   const [bookTitle, setBookTitle] = useState('');
   const [bookAuthor, setBookAuthor] = useState('');
+  const [bookCategory, setBookCategory] = useState(categories[0] || '');
 
   const updateBookTitle = (e) => {
     e.preventDefault();
@@ -14,6 +15,10 @@ export default function AddBookForm({ categories }) {
 
   const updateBookAuthor = (e) => {
     setBookAuthor(e.target.value);
+  };
+
+  const updateCategory = (e) => {
+    setBookCategory(e.target.value);
   };
 
   const dispatch = useDispatch();
@@ -30,6 +35,7 @@ export default function AddBookForm({ categories }) {
           dispatch(addBook({
             title: bookTitle.trim(),
             author: bookAuthor,
+            category: bookCategory,
           }));
           setBookTitle('');
           setBookAuthor('');
@@ -57,11 +63,13 @@ export default function AddBookForm({ categories }) {
         />
         <select
           name="category"
+          value={bookCategory}
+          onChange={updateCategory}
           className="px-4 py-3 border rounded bg-white min-w-[12rem] grow"
         >
           {
-            categories.forEach((cat) => (
-              <option value="volvo">{cat.title}</option>
+            categories.map((cat) => (
+              <option value={cat} key={cat}>{cat}</option>
             ))
           }
         </select>
@@ -77,5 +85,5 @@ export default function AddBookForm({ categories }) {
 }
 
 AddBookForm.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

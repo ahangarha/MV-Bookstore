@@ -10,7 +10,7 @@ export default function Book({ book }) {
     <li className="bg-white border rounded p-6 grid grid-cols-2 lg:grid-cols-3 gap-4">
       <div className="col-span-2 lg:col-span-1 flex flex-col lg:border-0 border-b pb-4 lg:pb-0">
         <p className="font-bold text-gray-500 text-sm">
-          {book.category || 'Uncategorized'}
+          {book.category}
         </p>
         <p className="font-serif text-gray-900 font-bold text-2xl">
           {book.title}
