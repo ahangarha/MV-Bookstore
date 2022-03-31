@@ -15,6 +15,7 @@ const bookAdded = (book) => ({
 });
 
 export const addBook = (data) => (dispatch) => {
+  console.log(data.category);
   const book = {
     item_id: uuidv4(),
     title: data.title,
