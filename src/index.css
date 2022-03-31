@@ -1,34 +1,5 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@300;700&display=swap');
 
-body {
-  height: 100vh;
-  min-height: 100vh;
-  background: #fafafa;
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #333;
-}
-
-hr {
-  border: 1px solid #e8e8e8;
-}
-
-.container {
-  width: 100%;
-  max-width: 992px;
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-.w-6 {
-  width: 1.5rem;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
