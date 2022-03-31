@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+const generateNavLinkStyle = ({ isActive }) => {
+  const baseNavLinkStyle = 'p-4 inline-block text-gray-400 hover:text-gray-800';
+  const activeStyle = isActive ? 'text-gray-800' : '';
+  return `${baseNavLinkStyle} ${activeStyle}`;
+};
 
 export default function Header() {
   return (
@@ -12,20 +18,20 @@ export default function Header() {
         <nav className="grow uppercase">
           <ul className="flex items-center">
             <li>
-              <Link
+              <NavLink
                 to="/"
-                className="p-2 inline-block text-gray-400 hover:text-gray-800"
+                className={generateNavLinkStyle}
               >
                 Books
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="/categories"
-                className="p-2 inline-block text-gray-400 hover:text-gray-800"
+                className={generateNavLinkStyle}
               >
                 Categories
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
