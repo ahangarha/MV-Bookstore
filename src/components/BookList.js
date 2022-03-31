@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBooks } from '../redux/books/books';
 import Book from './Book';
-import './BookList.css';
 
 export default function BookList() {
   const books = useSelector((state) => state.books);
@@ -15,7 +14,7 @@ export default function BookList() {
 
   if (books.length) {
     return (
-      <ul id="book-list">
+      <ul className="flex flex-col gap-4">
         {
           books.map((book) => (
             <Book book={book} key={book.id} />
