@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const generateNavLinkStyle = ({ isActive }) => {
-  const baseNavLinkStyle = 'p-4 inline-block text-gray-400 hover:text-gray-800';
+  const baseNavLinkStyle = 'text-sm md:text-base px-2 py-4 md:p-4 inline-block text-gray-400 hover:text-gray-800';
   const activeStyle = isActive ? 'text-gray-800' : '';
   return `${baseNavLinkStyle} ${activeStyle}`;
 };
