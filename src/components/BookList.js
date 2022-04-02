@@ -9,7 +9,7 @@ export default function BookList() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBooks());
+    if (!books.length) dispatch(fetchBooks());
   }, []);
 
   if (books.length) {
