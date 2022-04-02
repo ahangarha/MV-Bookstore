@@ -46,12 +46,12 @@ export default function Book({ book }) {
         </div>
       </div>
 
-      <div className="border-r flex justify-center items-center gap-4 self-center">
-        <svg className="w-20" fill="none" stroke="currentColor" strokeWidth="7" viewBox="0 0 100 100">
+      <div className="border-r flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 self-center">
+        <svg className="w-16 sm:w-20" fill="none" stroke="currentColor" strokeWidth="7" viewBox="0 0 100 100">
           <path className="text-gray-200" strokeDasharray="250,0" d="M50 10a40 40 0 0 1 0 80 40 40 0 0 1 0-80" />
           <path className="text-blue-500" strokeDasharray="180,180" d="M50 10a40 40 0 0 1 0 80 40 40 0 0 1 0-80" />
         </svg>
-        <div className="flex flex-col">
+        <div className="flex flex-col text-center sm:text-left">
           <span
             className="text-3xl text-gray-900"
           >

@@ -9,7 +9,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main className="container mx-auto my-10">
+      <main className="container mx-auto my-10 px-4">
         <Routes>
           <Route path="/" element={<BooksPage />} />
           <Route path="/categories" element={<CategoriesPage />} />
