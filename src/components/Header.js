@@ -33,6 +33,14 @@ export default function Header() {
                 Categories
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={generateNavLinkStyle}
+              >
+                About
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
