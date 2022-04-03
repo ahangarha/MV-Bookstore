@@ -1,10 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const ADD_BOOK = 'bookstore/books/ADD';
 const BOOK_ADDED = 'bookstore/books/ADDED';
-const REMOVE_BOOK = 'bookstore/books/REMOVE';
 const BOOK_REMOVED = 'bookstore/books/REMOVED';
-const FETCH_BOOKS = 'bookstore/books/FETCH';
 const BOOKS_FETCHED = 'bookstore/books/FETCHED';
 
 const bookAdded = (book) => ({
@@ -86,12 +83,8 @@ export const fetchBooks = () => (dispatch) => {
 
 export default function reducer(state = [], action) {
   switch (action.type) {
-    case FETCH_BOOKS:
-      return fetchBooks();
     case BOOKS_FETCHED:
       return action.payload.books;
-    case ADD_BOOK:
-      return addBook(action.payload.data);
     case BOOK_ADDED:
       return state.concat({
         id: action.payload.book.item_id,
@@ -99,8 +92,6 @@ export default function reducer(state = [], action) {
         author: action.payload.book.author,
         category: action.payload.book.category,
       });
-    case REMOVE_BOOK:
-      return removeBook(action.payload.id);
     case BOOK_REMOVED:
       return state.filter((book) => book.id !== action.payload.id);
     default:
